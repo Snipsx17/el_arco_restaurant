@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///Users/snipsx17/Documents/Projects/Restaurant_lapsusbistro/src/app/page.tsx"],"sourcesContent":["\nexport default function Home() {\n  return (\n    <main>\n      <h1>Hello word </h1>\n    </main>\n  );\n}\n"],"names":[],"mappings":";;;;;;AACe,SAAS;IACtB,qBACE,8OAAC;kBACC,cAAA,8OAAC;sBAAG;;;;;;;;;;;AAGV"}}]
-}
