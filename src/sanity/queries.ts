@@ -19,3 +19,17 @@ export const HOME_PAGE_QUERY = defineQuery(`
     }
   }
 `);
+
+export const NAVBAR_QUERY = defineQuery(`
+  *[_type == "navbar"][0]{
+    logo,
+    links[]{
+      label,
+      url
+    },
+    button{
+      label,
+      url
+    }
+  }
+`);

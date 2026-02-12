@@ -1,8 +1,9 @@
+import { SanityImageSource } from "@sanity/image-url";
 
 export interface HeroButton {
-  label: string
-  url: string
-  isPrimary: boolean
+  label: string;
+  url: string;
+  isPrimary: boolean;
 }
 
 export interface HeroSection {
@@ -16,8 +17,25 @@ export interface HeroSection {
 }
 
 // Cuando agregues más secciones, creas su interface y la unes aquí
-export type Section = HeroSection
+export type Section = HeroSection;
 
 export interface HomePage {
-  sections: Section[]
+  sections: Section[];
+}
+
+export interface NavLink {
+  label: string;
+  url: string;
+}
+
+export interface NavButton {
+  label: string;
+  url: string;
+}
+
+export interface Navbar {
+  logo: SanityImageSource;
+  logoUrl?: string | null;
+  links?: NavLink[];
+  button?: NavButton;
 }
