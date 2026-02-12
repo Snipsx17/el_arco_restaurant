@@ -1,15 +1,18 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Khula } from 'next/font/google';
 import "../globals.css";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
+const fraunces = Fraunces({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-fraunces'
+})
 
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
-});
+const khula = Khula({
+    subsets: ['latin'],
+    display: 'swap',
+    weight: '400',
+    variable: '--font-khula'
+})
 
 export default function HomeLayout({
     children,
@@ -17,10 +20,13 @@ export default function HomeLayout({
     children: React.ReactNode;
 }>) {
     return (
-            <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            >
+        <body
+            className={`${fraunces.variable} ${khula.variable} antialiased`}
+        >
+            <main>
                 {children}
-            </body>
+                <div className="h-[700px]"></div>
+            </main>
+        </body>
     );
 }
