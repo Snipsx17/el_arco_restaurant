@@ -15,6 +15,19 @@ export const HOME_PAGE_QUERY = defineQuery(`
           url,
           isPrimary
         }
+      },
+      _type == "aboutSection" => {
+        pretitle,
+        title,
+        description,
+        highlightText,
+        additionalText,
+        image,
+        button{
+          label,
+          url,
+          isPrimary
+        }
       }
     }
   }

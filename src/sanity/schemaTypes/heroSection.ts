@@ -33,37 +33,7 @@ export const heroSection = defineType({
       name: 'buttons',
       title: 'Botones',
       type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'object',
-          name: 'button',
-          title: 'Botón',
-          fields: [
-            defineField({
-              name: 'label',
-              title: 'Texto del botón',
-              type: 'string',
-              validation: (rule) => rule.required(),
-            }),
-            defineField({
-              name: 'url',
-              title: 'Enlace',
-              type: 'url',
-              validation: (rule) =>
-                rule.uri({
-                  allowRelative: true,
-                  scheme: ['http', 'https', 'tel', 'mailto'],
-                }),
-            }),
-            defineField({
-              name: 'isPrimary',
-              title: '¿Es botón primario?',
-              type: 'boolean',
-              initialValue: false,
-            }),
-          ],
-        }),
-      ],
+      of: [defineArrayMember({ type: 'button' })],
       validation: (rule) => rule.max(2),
     }),
   ],

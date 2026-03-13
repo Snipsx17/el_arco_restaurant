@@ -16,7 +16,10 @@ export const homePageType = defineType({
       name: "sections",
       title: "Sections",
       type: "array",
-      of: [defineArrayMember({ type: "heroSection" })],
+      of: [
+        defineArrayMember({ type: "heroSection" }),
+        defineArrayMember({ type: "aboutSection" })
+      ],
     }),
   ],
 });
