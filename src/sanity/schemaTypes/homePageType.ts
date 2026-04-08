@@ -18,7 +18,8 @@ export const homePageType = defineType({
       type: "array",
       of: [
         defineArrayMember({ type: "heroSection" }),
-        defineArrayMember({ type: "aboutSection" })
+        defineArrayMember({ type: "aboutSection" }),
+        defineArrayMember({ type: "gastronomicProposalSection" }),
       ],
     }),
   ],
