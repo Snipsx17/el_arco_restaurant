@@ -18,7 +18,7 @@ export default function GastronomicProposalSe({ data }: Props) {
         {title && <h2 className="text-4xl" data-aos="fade-in" >{title}</h2>}
       </div>
       <Separator />
-      {description && <p className="description">{description}</p>}
+      {description && <p className="description" data-aos="fade-in">{description}</p>}
 
       <MainProposal data={mainProposal} />
 
