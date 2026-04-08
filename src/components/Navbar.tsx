@@ -5,10 +5,10 @@ import { Button } from './ui/button'
 import { NavigationMenu, NavigationMenuLink, NavigationMenuList } from './ui/navigation-menu'
 import Link from 'next/link'
 import type { Navbar as NavbarType } from '@/sanity/types'
-import { urlFor } from '@/helpers/imageUrlBuilder'
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet'
 import { Menu } from 'lucide-react'
 import { useState } from 'react'
+import { urlFor } from '@/sanity/lib/image'
 
 interface Props {
   data: NavbarType
@@ -19,7 +19,7 @@ export default function Navbar({ data }: Props) {
   const [isOpen, setIsOpen ] = useState(false)
 
   const { logo, links, button:ctaButton } = data;
-  const logoUrl = urlFor(logo)?.height(60).url() as string;
+  const logoUrl = urlFor(logo);
 
   return (
     <header className='bg-transparent md:absolute top-0 left-0 right-0 w-full flex py-6 fixed z-10'>
