@@ -28,6 +28,49 @@ export const HOME_PAGE_QUERY = defineQuery(`
           url,
           isPrimary
         }
+      },
+      _type == "gastronomicProposalSection" => {
+        pretitle,
+        title,
+        description,
+        proposals{
+          mainProposal {
+            proposalTitle,
+            proposalDescription,
+            image{
+              asset->,
+              hotspot,
+              crop
+            }
+          },
+          firstProposal {
+            proposalTitle,
+            proposalDescription,
+            image{
+              asset->,
+              hotspot,
+              crop
+            }
+          },
+          secondProposal {
+            proposalTitle,
+            proposalDescription,
+            image{
+              asset->,
+              hotspot,
+              crop
+            }
+          },
+          thirdProposal {
+            proposalTitle,
+            proposalDescription,
+            image{
+              asset->,
+              hotspot,
+              crop
+            }
+          }
+        }
       }
     }
   }
