@@ -12,7 +12,7 @@ export default function GastronomicProposalSe({ data }: Props) {
   const {mainProposal, firstProposal, secondProposal, thirdProposal} = proposals;
 
   return (
-    <section className="flex flex-col justify-center items-center gap-10 px-5 py-24 md:p-28">
+    <section className="flex flex-col justify-center items-center gap-10 px-5 py-10 md:py-24 md:p-28">
       <div className='text-center'>
         {pretitle && <h3 className="text-gold uppercase font-fraunces m-3" data-aos="fade-in" >{pretitle}</h3>}
         {title && <h2 className="text-4xl" data-aos="fade-in" >{title}</h2>}
@@ -22,7 +22,7 @@ export default function GastronomicProposalSe({ data }: Props) {
 
       <MainProposal data={mainProposal} />
 
-      <div className='flex gap-10'>  
+      <div className='flex flex-col md:flex-row gap-10'>  
         <ProposalCard data={firstProposal} />
         <ProposalCard data={secondProposal} />
         <ProposalCard data={thirdProposal} />

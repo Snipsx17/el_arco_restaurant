@@ -15,10 +15,10 @@ export default function About({ data }: Props) {
             <div className="md:w-1/3 min-h-120 md:min-h-100">
                 <div className="bg-no-repeat bg-cover min-h-[inherit] md:h-full" style={{ backgroundImage: image ? `url(${image})` : undefined }}></div>
             </div>
-            <div className="flex flex-col md:w-2/3 gap-8">
+            <div className="flex flex-col items-center md:w-2/3 gap-8">
                 {pretitle && <h3 className="text-gold uppercase font-fraunces" data-aos="fade-in" >{pretitle}</h3> }
                 <Separator />
-                {title && <h2 className="text-4xl" data-aos="fade-in" >{title}</h2> }
+                {title && <h2 className="text-4xl text-center" data-aos="fade-in" >{title}</h2> }
                 {   description ? description?.split('\n\n').map(
                     (paragraph, index) => (<p key={index} data-aos="fade-in" >{paragraph.trim()}</p>)
                     ) : null
