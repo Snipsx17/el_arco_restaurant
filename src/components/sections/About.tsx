@@ -16,15 +16,15 @@ export default function About({ data }: Props) {
                 <div className="bg-no-repeat bg-cover min-h-[inherit] md:h-full" style={{ backgroundImage: image ? `url(${image})` : undefined }}></div>
             </div>
             <div className="flex flex-col md:w-2/3 gap-8">
-                {pretitle && <h3 className="text-gold uppercase font-fraunces" data-aos="fade-in" data-aos-delay="100">{pretitle}</h3> }
+                {pretitle && <h3 className="text-gold uppercase font-fraunces" data-aos="fade-in" >{pretitle}</h3> }
                 <Separator />
-                {title && <h2 className="text-4xl" data-aos="fade-in" data-aos-delay="100">{title}</h2> }
+                {title && <h2 className="text-4xl" data-aos="fade-in" >{title}</h2> }
                 {   description ? description?.split('\n\n').map(
-                    (paragraph, index) => (<p key={index} data-aos="fade-in" data-aos-delay="100">{paragraph.trim()}</p>)
+                    (paragraph, index) => (<p key={index} data-aos="fade-in" >{paragraph.trim()}</p>)
                     ) : null
                 }
-                {highlightText && <h3 data-aos="fade-in" data-aos-delay="100">{highlightText}</h3> }
-                {additionalText && <p data-aos="fade-in" data-aos-delay="100">{additionalText}</p> }
+                {highlightText && <h3 data-aos="fade-in" >{highlightText}</h3> }
+                {additionalText && <p data-aos="fade-in" >{additionalText}</p> }
                 <div>
                     <Button key={button?.label} size={'lg'} asChild variant={button?.isPrimary ? 'customPrimary' : 'customSecondary'} data-aos="fade-in" data-aos-delay="200">
                         <a href={button?.url} target="_blank">{button?.label}</a>
