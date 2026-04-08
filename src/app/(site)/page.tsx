@@ -1,8 +1,9 @@
 
 import About from "@/components/sections/About";
+import GastronomicProposalSe from "@/components/sections/gastronomy/gastronomicProposal";
 import Hero from "@/components/sections/Hero";
-import { urlFor } from "@/helpers/imageUrlBuilder";
 import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
 import { HOME_PAGE_QUERY } from "@/sanity/queries";
 import { HomePage } from "@/sanity/types";
 
@@ -11,7 +12,7 @@ export default async function Home() {
   const page = await client.fetch<HomePage>(
     HOME_PAGE_QUERY,
     {},
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 0 } }
   )
 
   if (!page?.sections) return null
@@ -19,24 +20,35 @@ export default async function Home() {
   return (page.sections.map(section => {
       switch (section._type) {
       case "heroSection":
-      const imageUrl = section.image
-      ? urlFor(section.image)?.width(1920).quality(80).url()
-      : null
-      return (
-      <Hero
-        key={section._key}
-        data={{ ...section, image: imageUrl }}
-      />
-      )
+          const imageUrl = urlFor(section.image);
+
+        return (
+        <Hero
+          key={section._key}
+          data={{ ...section, image: imageUrl }}
+        />
+        )
+
       case "aboutSection":
-      const aboutImageUrl = section.image
-      ? urlFor(section.image)?.width(800).quality(80).url()
-      : null
-      return (
-      <About key={section._key} data={{ ...section, image: aboutImageUrl }} />
-      )
+          const aboutImageUrl = urlFor(section.image!);
+        return (
+        <About 
+          key={section._key} 
+          data={{ ...section, image: aboutImageUrl }} 
+        />
+        )
+
+        case "gastronomicProposalSection":
+
+          return (
+          <GastronomicProposalSe 
+            key={section._key} 
+            data={{...section}} 
+            />
+          );
+
       default:
-      return null
+        return null
     }
   }))
 }
