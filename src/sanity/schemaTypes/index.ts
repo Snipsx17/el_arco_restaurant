@@ -5,7 +5,18 @@ import { heroSection } from './heroSection';
 import { aboutSection } from './aboutSection';
 import { buttonType } from './buttonType';
 import { gastronomicProposal } from './gastronomicProposalSection';
+import { terraceSection } from './terraceSection';
+import { locationSection } from './location';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [homePageType, heroSection, aboutSection, navbarType, buttonType, gastronomicProposal],
+  types: [
+    homePageType,
+    heroSection,
+    aboutSection,
+    navbarType,
+    buttonType,
+    gastronomicProposal,
+    terraceSection,
+    locationSection,
+  ],
 };

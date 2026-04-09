@@ -2,6 +2,8 @@
 import About from "@/components/sections/About";
 import GastronomicProposalSe from "@/components/sections/gastronomy/gastronomicProposal";
 import Hero from "@/components/sections/Hero";
+import Location from "@/components/sections/Location";
+import Terrace from "@/components/sections/Terrace";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { HOME_PAGE_QUERY } from "@/sanity/queries";
@@ -44,6 +46,22 @@ export default async function Home() {
           <GastronomicProposalSe 
             key={section._key} 
             data={{...section}} 
+            />
+          );
+
+        case "terraceSection":
+          return (
+          <Terrace 
+            key={section._key} 
+            data={section} 
+            />
+          );
+
+        case "locationSection":
+          return (
+            <Location
+              key={section._key}
+              data={section}
             />
           );
 

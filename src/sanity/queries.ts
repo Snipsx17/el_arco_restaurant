@@ -71,7 +71,35 @@ export const HOME_PAGE_QUERY = defineQuery(`
             }
           }
         }
-      }
+      },
+       _type == "terraceSection" => {
+          pretitle,
+          title,
+          description,
+          image
+       },
+       _type == "locationSection" => {
+          pretitle,
+          title,
+          description,
+          images {
+            image1 {
+              asset->,
+              hotspot,
+              crop
+            },
+            image2 {
+              asset->,
+              hotspot,
+              crop
+            },
+            image3 {
+              asset->,
+              hotspot,
+              crop
+            }
+          }
+       }
     }
   }
 `);

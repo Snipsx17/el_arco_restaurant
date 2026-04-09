@@ -77,7 +77,34 @@ export interface ProcessedGastronomicProposal extends Omit<
   proposals: ProcessedProposals;
 }
 
-export type Section = HeroSection | AboutSection | GastronomicProposal;
+export interface TerraceSection {
+  _type: "terraceSection";
+  _key: string;
+  pretitle?: string;
+  title: string;
+  description?: string;
+  image: SanityImageSource;
+}
+
+export interface LocationSection {
+  _type: "locationSection";
+  _key: string;
+  pretitle?: string;
+  title: string;
+  description?: string;
+  images: {
+    image1: SanityImageSource;
+    image2: SanityImageSource;
+    image3: SanityImageSource;
+  };
+}
+
+export type Section =
+  | HeroSection
+  | AboutSection
+  | GastronomicProposal
+  | TerraceSection
+  | LocationSection;
 
 export interface HomePage {
   sections: Section[];
