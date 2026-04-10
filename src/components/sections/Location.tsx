@@ -9,7 +9,6 @@ interface Props {
 
 export default function Location({ data }: Props) {
     const { pretitle, title, description, images } = data;
-    console.log(pretitle)
     return (
         <section className="flex flex-col justify-center items-center gap-10 px-5 py-10 md:py-24 md:p-28">
             <div className='text-center'>

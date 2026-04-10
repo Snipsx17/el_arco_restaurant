@@ -99,7 +99,17 @@ export const HOME_PAGE_QUERY = defineQuery(`
               crop
             }
           }
-       }
+       },
+       _type == "historySection" => {
+          pretitle,
+          title,
+          description,
+          images[]{
+            asset->,
+            alt,
+            caption
+          }
+       },
     }
   }
 `);

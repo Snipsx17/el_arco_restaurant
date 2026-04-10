@@ -7,6 +7,7 @@ import { buttonType } from './buttonType';
 import { gastronomicProposal } from './gastronomicProposalSection';
 import { terraceSection } from './terraceSection';
 import { locationSection } from './location';
+import { historySection } from './history';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -18,5 +19,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     gastronomicProposal,
     terraceSection,
     locationSection,
+    historySection
   ],
 };

@@ -99,12 +99,28 @@ export interface LocationSection {
   };
 }
 
+export interface carrouselImage {
+  alt: string;
+  asset: SanityImageSource;
+  caption: string;
+}
+
+export interface HistorySection {
+  _type: "historySection";
+  _key: string;
+  pretitle?: string;
+  title: string;
+  description?: string;
+  images: carrouselImage[];
+}
+
 export type Section =
   | HeroSection
   | AboutSection
   | GastronomicProposal
   | TerraceSection
-  | LocationSection;
+  | LocationSection
+  | HistorySection;
 
 export interface HomePage {
   sections: Section[];

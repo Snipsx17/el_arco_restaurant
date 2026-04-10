@@ -22,6 +22,7 @@ export const homePageType = defineType({
         defineArrayMember({ type: "gastronomicProposalSection" }),
         defineArrayMember({ type: "terraceSection" }),
         defineArrayMember({ type: "locationSection" }),
+        defineArrayMember({ type: "historySection" }),
       ],
     }),
   ],

@@ -2,6 +2,7 @@
 import About from "@/components/sections/About";
 import GastronomicProposalSe from "@/components/sections/gastronomy/gastronomicProposal";
 import Hero from "@/components/sections/Hero";
+import History from "@/components/sections/history/History";
 import Location from "@/components/sections/Location";
 import Terrace from "@/components/sections/Terrace";
 import { client } from "@/sanity/lib/client";
@@ -60,6 +61,14 @@ export default async function Home() {
         case "locationSection":
           return (
             <Location
+              key={section._key}
+              data={section}
+            />
+          );
+
+        case "historySection":
+          return (
+            <History
               key={section._key}
               data={section}
             />
