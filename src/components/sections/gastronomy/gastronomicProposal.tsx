@@ -2,6 +2,7 @@ import { GastronomicProposal } from '@/sanity/types';
 import Separator from '../../ui/Separator';
 import MainProposal from './MainProposal';
 import ProposalCard from './ProposalCard';
+import SectionHeader from '@/components/SectionHeader';
 
 interface Props {
   data: GastronomicProposal;
@@ -9,20 +10,16 @@ interface Props {
 
 export default function GastronomicProposalSe({ data }: Props) {
   const { title, pretitle, description, proposals } = data;
-  const {mainProposal, firstProposal, secondProposal, thirdProposal} = proposals;
+  const { mainProposal, firstProposal, secondProposal, thirdProposal } = proposals;
 
   return (
     <section className="flex flex-col justify-center items-center gap-10 px-5 py-10 md:py-24 md:p-28">
-      <div className='text-center'>
-        {pretitle && <h3 className="text-gold uppercase font-fraunces m-3" data-aos="fade-in" >{pretitle}</h3>}
-        {title && <h2 className="text-4xl" data-aos="fade-in" >{title}</h2>}
-      </div>
-      <Separator />
-      {description && <p className="description" data-aos="fade-in">{description}</p>}
+
+      <SectionHeader pretitle={pretitle!} title={title} description={description!} alignment="center" />
 
       <MainProposal data={mainProposal} />
 
-      <div className='flex flex-col md:flex-row gap-10'>  
+      <div className='flex flex-col md:flex-row gap-10'>
         <ProposalCard data={firstProposal} />
         <ProposalCard data={secondProposal} />
         <ProposalCard data={thirdProposal} />
