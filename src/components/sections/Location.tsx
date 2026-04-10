@@ -22,15 +22,15 @@ export default function Location({ data }: Props) {
             <div className="flex flex-col md:flex-row gap-6 w-full">
 
                 <div className="relative md:w-1/3 h-140">
-                    {images.image1 && <Image src={urlFor(images.image1)} className="object-cover" alt={title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />}
+                    {images.image1 && <Image loading="lazy" src={urlFor(images.image1)} className="object-cover" alt={title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />}
                 </div>
 
                 <div className="relative md:w-1/3 h-140">
-                    {images.image2 && <Image src={urlFor(images.image2)} className="object-cover" alt={title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />}
+                    {images.image2 && <Image loading="lazy" src={urlFor(images.image2)} className="object-cover" alt={title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />}
                 </div>
 
                 <div className="relative md:w-1/3 h-140">
-                    {images.image3 && <Image src={urlFor(images.image3)} className="object-cover" alt={title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />}
+                    {images.image3 && <Image loading="lazy" src={urlFor(images.image3)} className="object-cover" alt={title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />}
                 </div>
 
             </div>

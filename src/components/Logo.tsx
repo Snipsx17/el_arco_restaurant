@@ -18,12 +18,14 @@ export default function Logo({
     <Link href="/" className="flex items-center">
       {logoUrl ? (
         <Image
-          src={logoUrl}
+          src={`${logoUrl}&w=240&h=146`}
           alt={alt}
           height={height}
           width={width}
           className="object-contain"
           unoptimized={true}
+          fetchPriority='high'
+          loading='eager'
         />
       ) : (
         <div className="text-white text-xl font-bold">

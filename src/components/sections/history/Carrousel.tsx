@@ -26,6 +26,7 @@ export default function Carousel({ images }: Props) {
                             <Image
                                 src={urlFor(img)}
                                 alt={img.alt || ''}
+                                loading="lazy"
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 768px) 100vw, 33vw"

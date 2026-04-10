@@ -18,7 +18,7 @@ export default function Terrace({ data }: Props) {
             </div>
 
             <div className="relative md:w-1/2 min-h-120 md:min-h-140">
-                {image && <Image src={urlFor(image, 100)} className="object-cover" alt={title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />}
+                {image && <Image loading="lazy" src={urlFor(image, 100)} className="object-cover" alt={title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />}
             </div>
         </section>
     )

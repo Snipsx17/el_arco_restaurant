@@ -1,6 +1,6 @@
 
 import About from "@/components/sections/About";
-import GastronomicProposalSe from "@/components/sections/gastronomy/gastronomicProposal";
+import GastronomicProposalSe from "@/components/sections/gastronomy/GastronomicProposal";
 import Hero from "@/components/sections/Hero";
 import History from "@/components/sections/history/History";
 import Location from "@/components/sections/Location";
@@ -21,58 +21,58 @@ export default async function Home() {
   if (!page?.sections) return null
 
   return (page.sections.map(section => {
-      switch (section._type) {
+    switch (section._type) {
       case "heroSection":
-          const imageUrl = urlFor(section.image);
+        const imageUrl = urlFor(section.image);
 
         return (
-        <Hero
-          key={section._key}
-          data={{ ...section, image: imageUrl }}
-        />
+          <Hero
+            key={section._key}
+            data={{ ...section, image: imageUrl }}
+          />
         )
 
       case "aboutSection":
-          const aboutImageUrl = urlFor(section.image!);
+        const aboutImageUrl = urlFor(section.image!);
         return (
-        <About 
-          key={section._key} 
-          data={{ ...section, image: aboutImageUrl }} 
-        />
+          <About
+            key={section._key}
+            data={{ ...section, image: aboutImageUrl }}
+          />
         )
 
-        case "gastronomicProposalSection":
+      case "gastronomicProposalSection":
 
-          return (
-          <GastronomicProposalSe 
-            key={section._key} 
-            data={{...section}} 
-            />
-          );
+        return (
+          <GastronomicProposalSe
+            key={section._key}
+            data={{ ...section }}
+          />
+        );
 
-        case "terraceSection":
-          return (
-          <Terrace 
-            key={section._key} 
-            data={section} 
-            />
-          );
+      case "terraceSection":
+        return (
+          <Terrace
+            key={section._key}
+            data={section}
+          />
+        );
 
-        case "locationSection":
-          return (
-            <Location
-              key={section._key}
-              data={section}
-            />
-          );
+      case "locationSection":
+        return (
+          <Location
+            key={section._key}
+            data={section}
+          />
+        );
 
-        case "historySection":
-          return (
-            <History
-              key={section._key}
-              data={section}
-            />
-          );
+      case "historySection":
+        return (
+          <History
+            key={section._key}
+            data={section}
+          />
+        );
 
       default:
         return null
