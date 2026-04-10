@@ -17,9 +17,9 @@ export default function Hero({ data }: Props) {
 
       <Separator />
       <div className="text-center z-10">
-        <h1 className="text-5xl md:text-7xl capitalize mb-4" data-aos="fade-in" >{title}</h1>
-        <p className="text-2xl md:text-3xl mb-4" data-aos="fade-in" >{subtitle}</p>
-        {text && <p className="text-xl" data-aos="fade-in" >{text}</p>}
+        <h1 className="text-5xl md:text-7xl capitalize mb-4" data-aos="fade-up" data-aos-duration="1500" >{title}</h1>
+        <p className="text-2xl md:text-3xl mb-4" data-aos="fade-up" data-aos-duration="1300" >{subtitle}</p>
+        {text && <p className="text-xl" data-aos="fade-up" data-aos-duration="1100" >{text}</p>}
       </div>
       <Separator />
       <div className="z-10 flex gap-4 w-80">
