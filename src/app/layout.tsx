@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${fraunces.variable} ${khula.variable} ${roboto.variable} antialiased`}
+        className={`${fraunces.variable} ${khula.variable} ${roboto.variable} antialiased relative`}
       > 
         {children}
       </body>

@@ -1,5 +1,6 @@
 
 import About from "@/components/sections/About";
+import Gallery from "@/components/sections/gallery/Gallery";
 import GastronomicProposalSe from "@/components/sections/gastronomy/GastronomicProposal";
 import Hero from "@/components/sections/Hero";
 import History from "@/components/sections/history/History";
@@ -69,6 +70,14 @@ export default async function Home() {
       case "historySection":
         return (
           <History
+            key={section._key}
+            data={section}
+          />
+        );
+
+      case "gallerySection":
+        return (
+          <Gallery
             key={section._key}
             data={section}
           />

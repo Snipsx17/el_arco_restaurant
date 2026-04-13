@@ -110,6 +110,15 @@ export const HOME_PAGE_QUERY = defineQuery(`
             caption
           }
        },
+       _type == "gallerySection" => {
+          pretitle,
+          title,
+          description,
+          images[]{
+            asset->,
+            alt
+          }
+       },
     }
   }
 `);
