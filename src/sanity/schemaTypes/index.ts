@@ -9,6 +9,7 @@ import { terraceSection } from './terraceSection';
 import { locationSection } from './location';
 import { historySection } from './history';
 import { gallerySection } from './gallery';
+import { contactSection } from './contactSection';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -22,5 +23,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     locationSection,
     historySection,
     gallerySection,
+    contactSection
   ],
 };

@@ -128,6 +128,19 @@ export interface GallerySection {
   images: GalleryImage[];
 }
 
+export interface ContactSection {
+  _type: "contactSection";
+  _key: string;
+  pretitle?: string;
+  title: string;
+  description?: string;
+  information: {
+    address: string;
+    telephone: string;
+    email: string;
+  };
+}
+
 export type Section =
   | HeroSection
   | AboutSection
@@ -135,7 +148,8 @@ export type Section =
   | TerraceSection
   | LocationSection
   | HistorySection
-  | GallerySection;
+  | GallerySection
+  | ContactSection;
 
 export interface HomePage {
   sections: Section[];
