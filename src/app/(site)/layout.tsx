@@ -1,26 +1,29 @@
-import { Geist, Geist_Mono } from "next/font/google";
+
 import "../globals.css";
+import { NAVBAR_QUERY } from '@/sanity/queries';
+import { client } from '@/sanity/lib/client';
+import type { Navbar as NavbarType } from '@/sanity/types'
+import Navbar from '@/components/Navbar';
+import AOSInit from '@/components/AOSInit';
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
-});
-
-export default function HomeLayout({
+export default async function HomeLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const navbarData = await client.fetch<NavbarType>(
+        NAVBAR_QUERY,
+        {},
+        { next: { revalidate: 60 } }
+    )
+
     return (
-            <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            >
-                {children}
-            </body>
+        <>
+            <AOSInit />
+                <Navbar data={navbarData} />
+                <main>
+                    {children}
+                </main>
+        </>
     );
 }

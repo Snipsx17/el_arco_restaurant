@@ -1,5 +1,26 @@
+import { Fraunces, Khula, Roboto } from 'next/font/google';
 import type { Metadata } from "next";
 import "./globals.css";
+
+const fraunces = Fraunces({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-fraunces'
+})
+
+const khula = Khula({
+    subsets: ['latin'],
+    display: 'swap',
+    weight: '400',
+    variable: '--font-khula'
+})
+
+const roboto = Roboto({
+    subsets: ['latin'],
+    display: 'swap',
+    weight: '400',
+    variable: '--font-roboto'
+})
 
 
 export const metadata: Metadata = {
@@ -14,7 +35,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <body
+        className={`${fraunces.variable} ${khula.variable} ${roboto.variable} antialiased relative`}
+      > 
         {children}
+      </body>
     </html>
   );
 }
