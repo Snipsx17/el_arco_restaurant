@@ -1,13 +1,13 @@
 "use client"
 
 import { urlFor } from '@/sanity/lib/image'
-import { carrouselImage } from '@/sanity/types'
+import { CarrouselImage } from '@/sanity/types'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import Image from 'next/image'
 
 interface Props {
-    images: carrouselImage[]
+    images: CarrouselImage[]
 }
 
 export default function Carousel({ images }: Props) {

@@ -119,6 +119,16 @@ export const HOME_PAGE_QUERY = defineQuery(`
             alt
           }
        },
+       _type == "contactSection" => {
+          pretitle,
+          title,
+          description,
+          information{
+            address,
+            telephone,
+            email
+          }
+       }
     }
   }
 `);

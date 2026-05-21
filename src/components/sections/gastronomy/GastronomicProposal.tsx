@@ -1,5 +1,4 @@
 import { GastronomicProposal } from '@/sanity/types';
-import Separator from '../../ui/Separator';
 import MainProposal from './MainProposal';
 import ProposalCard from './ProposalCard';
 import SectionHeader from '@/components/SectionHeader';
