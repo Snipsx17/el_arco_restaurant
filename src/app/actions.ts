@@ -7,23 +7,39 @@ const TOKEN = process.env.MAILTRAP_TRANSPORT_TOKEN!;
 
 type FormPayload = Inputs & { recaptchaToken: string };
 
-export async function submitForm(formData: FormPayload) {
-  const verifyRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+const verifyRecaptcha = async (recaptchaToken: string): Promise<boolean> => {
+  const FETCH_URL = "https://www.google.com/recaptcha/api/siteverify";
+  const verifyRes = await fetch(FETCH_URL, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${formData.recaptchaToken}`,
+    body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
   });
-  const { success, score }: { success: boolean; score: number } = await verifyRes.json();
+  const { success, score }: { success: boolean; score: number } =
+    await verifyRes.json();
 
   if (!success || score < 0.5) {
     throw new Error("reCAPTCHA verification failed");
   }
 
-  const transport = Nodemailer.createTransport(
+  return true;
+};
+
+const createNodemailerTransport = () => {
+  return Nodemailer.createTransport(
     MailtrapTransport({
       token: TOKEN,
     }),
   );
+}
+
+export async function submitForm(formData: FormPayload) {
+  const { recaptchaToken, firstName, lastName, email, telephone, message } = formData;
+  try {
+    
+  } catch (error) {
+    await verifyRecaptcha(recaptchaToken);
+
+  const transport = createNodemailerTransport();
 
   const sender = {
     address: "info@elarcorestaurante.com",
@@ -31,7 +47,7 @@ export async function submitForm(formData: FormPayload) {
   };
   const recipients = ["contact@uhernandez.com"];
 
-  transport
+  const emailSent = transport
     .sendMail({
       from: sender,
       to: recipients,
@@ -39,7 +55,7 @@ export async function submitForm(formData: FormPayload) {
       text: "Nuevo mensaje de la web",
       category: "Integration Test",
     })
-    .then(console.log, console.error);
-  console.log("Message sent");
+  }
+  
 }
 

@@ -1,5 +1,6 @@
 
 import About from "@/components/sections/About";
+import Contact from "@/components/sections/contact/Contact";
 import Gallery from "@/components/sections/gallery/Gallery";
 import GastronomicProposalSe from "@/components/sections/gastronomy/GastronomicProposal";
 import Hero from "@/components/sections/Hero";
@@ -81,6 +82,11 @@ export default async function Home() {
             key={section._key}
             data={section}
           />
+        );
+
+      case "contactSection":
+        return (
+          <Contact key={section._key} data={section} />
         );
 
       default:
