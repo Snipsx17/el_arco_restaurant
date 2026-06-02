@@ -2,8 +2,15 @@
 import { Inputs } from "@/components/sections/contact/contactForm";
 import * as Nodemailer from "nodemailer";
 import { MailtrapTransport } from "mailtrap";
+import { contactFormTemplate } from "@/templates/email";
+
+interface FormActionResponse {
+  success: string | null;
+  error: string | null;
+}
 
 const TOKEN = process.env.MAILTRAP_TRANSPORT_TOKEN!;
+const FORM_DESTINATION_EMAIL = process.env.FORM_EMAIL_RECEIVER!;
 
 type FormPayload = Inputs & { recaptchaToken: string };
 
@@ -30,32 +37,42 @@ const createNodemailerTransport = () => {
       token: TOKEN,
     }),
   );
-}
+};
 
-export async function submitForm(formData: FormPayload) {
-  const { recaptchaToken, firstName, lastName, email, telephone, message } = formData;
+export async function submitForm(
+  formData: FormPayload,
+): Promise<FormActionResponse> {
+  const { recaptchaToken, firstName, lastName, email, telephone, message } =
+    formData;
   try {
-    
-  } catch (error) {
     await verifyRecaptcha(recaptchaToken);
 
-  const transport = createNodemailerTransport();
+    const transport = createNodemailerTransport();
 
-  const sender = {
-    address: "info@elarcorestaurante.com",
-    name: "Web El Arco Restaurante",
-  };
-  const recipients = ["contact@uhernandez.com"];
+    const sender = {
+      address: "info@elarcorestaurante.com",
+      name: "Web El Arco Restaurante Calpe",
+    };
+    const recipients = [FORM_DESTINATION_EMAIL];
 
-  const emailSent = transport
-    .sendMail({
+    await transport.sendMail({
       from: sender,
       to: recipients,
       subject: "Nuevo mensaje de la web",
-      text: "Nuevo mensaje de la web",
-      category: "Integration Test",
-    })
-  }
-  
-}
+      html: contactFormTemplate(firstName, lastName, email, telephone, message),
+      category: "Web",
+    });
 
+    return { success: "Mensaje enviado", error: null };
+  } catch (error) {
+    let errorResponse: FormActionResponse = { success: null, error: null };
+
+    if (error instanceof Error) {
+      errorResponse = {
+        success: null,
+        error: "Error al enviar el mensaje, por favor intentalo nuevamente.",
+      };
+    }
+    return errorResponse;
+  }
+}
