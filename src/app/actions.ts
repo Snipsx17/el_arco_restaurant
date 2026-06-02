@@ -70,7 +70,7 @@ export async function submitForm(
     if (error instanceof Error) {
       errorResponse = {
         success: null,
-        error: "Error al enviar el mensaje, por favor intentalo nuevamente.",
+        error: error.message,
       };
     }
     return errorResponse;
