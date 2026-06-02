@@ -5,6 +5,7 @@ import InputGroup from './InputGroup';
 import { cn } from '@/lib/utils';
 import { submitForm } from '@/app/actions';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { toast } from 'sonner';
 
 export type Inputs = {
   firstName: string;
@@ -26,7 +27,22 @@ export default function ContactForm() {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     if (!executeRecaptcha) return;
     const token = await executeRecaptcha("contact_form");
-    await submitForm({ ...data, recaptchaToken: token });
+    const result = await submitForm({ ...data, recaptchaToken: "token" });
+
+    if (result?.error) {
+      toast.error(result?.error, {
+        position: "bottom-right",
+        style: {
+          background: 'red',
+        }
+      })
+
+      return
+    }
+
+    toast.success(result?.success, {
+      position: "bottom-right",
+    })
   };
 
   return (
