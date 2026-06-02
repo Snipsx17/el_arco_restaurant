@@ -27,7 +27,7 @@ export default function ContactForm() {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     if (!executeRecaptcha) return;
     const token = await executeRecaptcha("contact_form");
-    const result = await submitForm({ ...data, recaptchaToken: "token" });
+    const result = await submitForm({ ...data, recaptchaToken: token });
 
     if (result?.error) {
       toast.error(result?.error, {

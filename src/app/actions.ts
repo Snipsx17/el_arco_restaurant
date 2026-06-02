@@ -9,8 +9,9 @@ interface FormActionResponse {
   error: string | null;
 }
 
-const TOKEN = process.env.MAILTRAP_TRANSPORT_TOKEN!;
+const MAILTRAP_TOKEN = process.env.MAILTRAP_TRANSPORT_TOKEN!;
 const FORM_DESTINATION_EMAIL = process.env.FORM_EMAIL_RECEIVER!;
+
 
 type FormPayload = Inputs & { recaptchaToken: string };
 
@@ -34,7 +35,7 @@ const verifyRecaptcha = async (recaptchaToken: string): Promise<boolean> => {
 const createNodemailerTransport = () => {
   return Nodemailer.createTransport(
     MailtrapTransport({
-      token: TOKEN,
+      token: MAILTRAP_TOKEN,
     }),
   );
 };
